@@ -1,0 +1,4 @@
+BEGIN
+    Imprimir("Meu pau");
+    a + b;
+END
