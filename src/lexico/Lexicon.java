@@ -15,8 +15,9 @@ public class Lexicon {
 			if(c == ' ' ||c == '\n') {
 				continue;
 			}
-			if(c == '=') {
-				return new Token(EnumTokens.OP_ATR,"=");
+			//Operadores Simples
+			if(c == ',') {
+				return new Token(EnumTokens.DELIM,",");
 			}else if(c == '*') {
 				return new Token(EnumTokens.OP_MULT,"*");
 			}else if(c == '/') {
@@ -31,7 +32,22 @@ public class Lexicon {
 				return new Token(EnumTokens.FC_PAR,")");
 			}else if(c == ';') {
 				return new Token(EnumTokens.TERMINAL,";");
+			}else if(c == '<') {
+				c = (char)data.readNextChar();
+				if(c == '=') {
+					return new Token(EnumTokens.OP_MENORIG,"<=");
+				}else {
+					return new Token(EnumTokens.OP_MENOR,"<");
+				}
+			}else if(c == '>') {
+				c = (char)data.readNextChar();
+				if(c == '=') {
+					return new Token(EnumTokens.OP_MAIORIG,">=");
+				}else {
+					return new Token(EnumTokens.OP_MAIOR,">");
+				}
 			}
+			
 		}
 		return null;
 	}
