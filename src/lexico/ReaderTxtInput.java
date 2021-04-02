@@ -8,9 +8,12 @@ import java.io.InputStream;
 
 public class ReaderTxtInput {
 	
-	private static final int SIZE = 5;
+	private static final int SIZE = 20;
 	int[] bufferedRead;
 	int pointer;
+	int currentBuffer;
+	int initLex;
+	private String lexeme;
 	
 	InputStream is;
 	
@@ -25,6 +28,9 @@ public class ReaderTxtInput {
 	}
 	
 	private void startBuffer() {
+		currentBuffer = 2;
+		initLex = 0;
+		lexeme = "";
 		bufferedRead = new int[SIZE * 2];
 		pointer = 0;
 		reloadBuffer1();
@@ -41,48 +47,101 @@ public class ReaderTxtInput {
 	}
 	
 	private void reloadBuffer1() {
-		for(int i = 0; i < SIZE; i++) {
-			try {
-				bufferedRead[i] = is.read();
-				if(bufferedRead[i] == -1) {
-					break;
+		if(currentBuffer == 2) {
+
+			currentBuffer = 1;
+		
+			for(int i = 0; i < SIZE; i++) {
+				try {
+					bufferedRead[i] = is.read();
+					if(bufferedRead[i] == -1) {
+						break;
+					}
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
 				}
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
 			}
 		}
 	}
 	private void reloadBuffer2() {
-		for(int i = SIZE; i < SIZE * 2; i++) {
-			try {
-				bufferedRead[i] = is.read();
-				if(bufferedRead[i] == -1) {
-					break;
+		if(currentBuffer == 1) {
+			
+			currentBuffer = 2;
+		
+			for(int i = SIZE; i < SIZE * 2; i++) {
+				try {
+					bufferedRead[i] = is.read();
+					if(bufferedRead[i] == -1) {
+						break;
+					}
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
 				}
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
 			}
 		}
 	}
 	
 	private int readCaracterOfBuffer() {
 		int ret = bufferedRead[pointer];
+		System.out.print(this);
 		incrementPointer();
 		return ret;
 	}
 	public int readNextChar() {
 		int c = readCaracterOfBuffer();
-		System.out.println((char)c);
+		lexeme += (char) c;
 		return c;
 	}
 	
 	public void back() {
 		pointer--;
+		lexeme = lexeme.substring(0, lexeme.length() - 1);
 		if(pointer < 0) {
-			pointer = (SIZE * 2) - 1;
-			
+			pointer = (SIZE * 2) - 1;			
 		}
+	}
+	
+	public void reset() {
+		pointer = initLex;
+		lexeme = "";
+	}
+	
+	public void confirm() {
+		initLex = pointer;
+		lexeme = "";
+	}
+	
+	public String getLexeme() {
+		return lexeme;
+	}
+	
+	@Override
+	
+	public String toString() {
+		String tks = "Buffer:[";
+		for(int i : bufferedRead) {
+			char c = (char) i;
+			if(Character.isWhitespace(c)) {
+				tks += ' ';
+			}else {
+				tks += (char) i;
+			}
+		}
+		tks += "]\n";
+		tks += "         ";
+		for(int i = 0; i < SIZE * 2; i++) {
+			if(i == initLex && i == pointer) {
+				tks += "#";
+			}else if(i == initLex) {
+				tks += "^";
+			}else if(i == pointer) {
+				tks += "*";
+			}else {
+				tks += " ";
+			}
+		}
+		return tks;
 	}
 }

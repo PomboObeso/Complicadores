@@ -11,7 +11,7 @@ public class Main {
 		Token t = null;
 		
 		while((t = lex.nextToken())!= null) {
-			System.out.println(t);
+			System.out.print(t);
 		}
 	}
 

@@ -1,4 +1,5 @@
 BEGIN
     Imprimir("Meu pau");
     a + b;
+    a <= c;
 END
