@@ -1,5 +1,6 @@
 package program;
 
+import lexico.EnumTokens;
 import lexico.Lexicon;
 import lexico.Token;
 
@@ -10,8 +11,8 @@ public class Main {
 		Lexicon lex = new Lexicon(path);
 		Token t = null;
 		
-		while((t = lex.nextToken())!= null) {
-			System.out.print(t);
+		while((t = lex.nextToken()).identifiers == EnumTokens.Fim) {
+			System.out.println(t);
 		}
 	}
 

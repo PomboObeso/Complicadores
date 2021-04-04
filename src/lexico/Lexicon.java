@@ -8,11 +8,81 @@ public class Lexicon {
 	}
 	
 	public Token nextToken() {
-
+		Token next = null;
+		spaceAndComment();
+		data.confirm();
+		
+		next = endOfAnalyse();
+		if(next == null) {
+			data.reset();
+		}else {
+			data.confirm();
+			return next;
+		}
+		
+		next = reservedWord();
+		if(next == null) {
+			data.reset();
+		}else {
+			data.confirm();
+			return next;
+		}
+		
+		next = identifier();
+		if(next == null) {
+			data.reset();
+		}else {
+			data.confirm();
+			return next;
+		}
+		
+		next = numbers();
+		if(next == null) {
+			data.reset();
+		}else {
+			data.confirm();
+			return next;
+		}
+		
+		next = OpArit();
+		if(next == null) {
+			data.reset();
+		}else {
+			data.confirm();
+			return next;
+		}
+		
+		next = opRelacional();
+		if(next == null) {
+			data.reset();
+		}else {
+			data.confirm();
+			return next;
+		}
+		
+		next = delimitador();
+		if(next == null) {
+			data.reset();
+		}else {
+			data.confirm();
+			return next;
+		}
+		
+		next = string();
+		if(next == null) {
+			data.reset();
+		}else {
+			data.confirm();
+			return next;
+		}
+		
+		System.err.println("Lexicon Error!");
+		System.err.println(data.toString());
+		
 		return null;
 	}
 	
-	private Token OpArit() {
+	private Token OpArit() { //check
 		int readChar = data.readNextChar();
 		char c = (char)readChar;
 		
@@ -28,7 +98,7 @@ public class Lexicon {
 			return null;
 		}
 	}
-	private Token delimitador() {
+	private Token delimitador() { //check
 		int readChar = data.readNextChar();
 		char c = (char)readChar;
 		if(c == ',') {
@@ -47,7 +117,7 @@ public class Lexicon {
 			return null;
 		}
 	}
-	private Token opRelacional() {
+	private Token opRelacional() { //check
 		int readChar = data.readNextChar();
 		char c = (char)readChar;
 	
@@ -87,7 +157,7 @@ public class Lexicon {
 			return null;
 		}
 	}
-	private Token numbers() {
+	private Token numbers() { //check
 		int state = 1;
 		while(true) {
 			char c = (char) data.readNextChar();
@@ -117,7 +187,7 @@ public class Lexicon {
 			}
 		}
 	}
-	private Token identifier() {
+	private Token identifier() { //check
 		int state = 1;
 		while(true) {
 			char c = (char) data.readNextChar();
@@ -135,7 +205,7 @@ public class Lexicon {
 			}
 		}
 	}
-	private Token string() {
+	private Token string() { //check
 		int state = 1;
 		while(true) {
 			char c = (char) data.readNextChar();
@@ -163,7 +233,7 @@ public class Lexicon {
 			}
 		}
 	}
-	private void spaceAndComment() {
+	private void spaceAndComment() { //check
 		int state = 1;
 		while(true) {
 			char ch = (char) data.readNextChar();
@@ -190,7 +260,7 @@ public class Lexicon {
 			}
 		}
 	}
-	private Token reservedWord() {
+	private Token reservedWord() { //check
 		while(true) {
 			char ch = (char) data.readNextChar();
 			if(!Character.isLetter(ch)) {
@@ -246,6 +316,14 @@ public class Lexicon {
 					return null;
 				}
 			}
+		}
+	}
+	private Token endOfAnalyse() { //check
+		int charRead = data.readNextChar();
+		if(charRead == -1) {
+			return new Token(EnumTokens.Fim,"End of File");
+		}else {
+			return null;
 		}
 	}
 }

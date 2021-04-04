@@ -85,7 +85,7 @@ public class ReaderTxtInput {
 	
 	private int readCaracterOfBuffer() {
 		int ret = bufferedRead[pointer];
-		System.out.print(this);
+		//System.out.println(this);
 		incrementPointer();
 		return ret;
 	}
