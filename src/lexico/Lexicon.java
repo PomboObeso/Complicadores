@@ -33,7 +33,7 @@ public class Lexicon {
 		String lex = "";
 		state = 0;
 		while(true) {
-			if(isEOF) {
+			if(isEOF()) {
 				if(nextLine()) {
 					content = lineTxt.toCharArray();
 				}else {
@@ -287,6 +287,49 @@ public class Lexicon {
 	private boolean isCharUpper(char ch) {
 		return Character.isUpperCase(ch);
 	}
-	
-	
+    private boolean isCharLower(char ch) {
+        return Character.isLowerCase(ch);
+    }
+    private boolean isOperator(char ch) {
+        return ch == '>' || ch == '<' || ch == '=' || ch == '!';
+    }
+    private boolean isSpaceWhite(char ch) {
+        return Character.isWhitespace(ch) || ch == '\t' || ch == '\n' || ch == '\r' || ch == '\f' || ch == '\0' || ch == '\b';
+    }
+    private char nextChar() {
+        return content[position++];
+    }
+    private boolean isEOF() {
+        return position == content.length;
+    }
+    private void back() {
+        position--;
+    }
+    
+    //Metodo auxiliar para passar linha
+    
+    public void printCodeLine(String content) {
+        String format = "%4d  %s";
+        System.out.println(String.format(format, line, content));
+    }
+    
+    private boolean nextLine() {
+        String contentTemp = " ";
+        try {
+            contentTemp = reader.readLine();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        if(contentTemp != null) {
+            lineTxt = contentTemp;
+            printCodeLine(lineTxt);
+            lineTxt += " ";
+            line++;
+            position = 0;
+            columm = 0;
+
+            return true;
+        }
+        return false;
+    }
 }
