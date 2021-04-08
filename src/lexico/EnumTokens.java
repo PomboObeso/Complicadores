@@ -43,6 +43,7 @@ public enum EnumTokens {
 	OP_NEGUN,
 	OP_RELIGUAL,
 	OP_RELDIFER,
+	OP_CONC,
 	DELIM,
 	AB_PAR,
 	FC_PAR,
