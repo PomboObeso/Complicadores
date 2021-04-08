@@ -7,7 +7,7 @@ import lexico.Token;
 public class Main {
 
 	public static void main(String[] args) {
-		Lexicon lex = new Lexicon(args[0]);
+		Lexicon lex = new Lexicon("/home/beelzebub/eclipse-workspace/compilador_tipo/src/program/input.txt");
 		Token tk = null;
 		try {
 			do {

@@ -1,4 +1,4 @@
-package lexico;
+package src.lexico;
 
 import java.util.Hashtable;
 
@@ -6,8 +6,8 @@ public class TabelaHashDePalavras {
 	Hashtable<String, EnumTokens> palavraReservada = new Hashtable<>();
 	
 	public TabelaHashDePalavras() {
-		palavraReservada.put("Inicio", EnumTokens.PR_INICIO);
-		palavraReservada.put("Fim", EnumTokens.PR_FIM);
+		palavraReservada.put("INICIO", EnumTokens.PR_INICIO);
+		palavraReservada.put("FIM", EnumTokens.PR_FIM);
 		palavraReservada.put("Principal", EnumTokens.PR_PRINCIPAL);
 		palavraReservada.put("E",EnumTokens.PR_E);
 		palavraReservada.put("Funcao",EnumTokens.PR_FUNCAO);

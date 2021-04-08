@@ -1,5 +1,5 @@
-Inicio
+BEGIN
     Imprimir("Meu pau");
     a + b;
     a <= c;
-Fim
+END
