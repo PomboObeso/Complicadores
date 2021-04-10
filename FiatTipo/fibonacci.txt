@@ -6,25 +6,25 @@
  [0001,0005] (0002,          PR_INTEIRO) {Inteiro} 
  [0001,0006] (0000,                  ID) {n} 
  [0001,0007] (0045,              FC_PAR) {)} 
- [0001,0008] (0056,               ER_PR) {Inicio} 
-   2  		Se(n < 2) Inicio
+ [0001,0008] (0013,           PR_INICIO) {Inicio} 
+   2  	Se(n < 2) Inicio
  [0002,0001] (0009,               PR_SE) {Se} 
  [0002,0002] (0044,              AB_PAR) {(} 
  [0002,0003] (0000,                  ID) {n} 
  [0002,0004] (0033,            OP_MENOR) {<} 
  [0002,0005] (0049,             CTE_INT) {2} 
  [0002,0006] (0045,              FC_PAR) {)} 
- [0002,0007] (0056,               ER_PR) {Inicio} 
-   3  			Devolve n ; 
+ [0002,0007] (0013,           PR_INICIO) {Inicio} 
+   3  		Devolve n ; 
  [0003,0001] (0016,          PR_DEVOLVE) {Devolve} 
  [0003,0002] (0000,                  ID) {n} 
  [0003,0003] (0048,            TERMINAL) {;} 
-   4  		Fim
- [0004,0001] (0056,               ER_PR) {Fim} 
-   5  		Porem Inicio
+   4  	Fim
+ [0004,0001] (0014,              PR_FIM) {Fim} 
+   5  	Porem Inicio
  [0005,0001] (0010,            PR_POREM) {Porem} 
- [0005,0002] (0056,               ER_PR) {Inicio} 
-   6  			Devolve fibonacci(n - 1) + fibonacci(n - 2);
+ [0005,0002] (0013,           PR_INICIO) {Inicio} 
+   6  		Devolve fibonacci(n - 1) + fibonacci(n - 2);
  [0006,0001] (0016,          PR_DEVOLVE) {Devolve} 
  [0006,0002] (0000,                  ID) {fibonacci} 
  [0006,0003] (0044,              AB_PAR) {(} 
@@ -40,23 +40,23 @@
  [0006,0013] (0049,             CTE_INT) {2} 
  [0006,0014] (0045,              FC_PAR) {)} 
  [0006,0015] (0048,            TERMINAL) {;} 
-   7  		Fim
- [0007,0001] (0056,               ER_PR) {Fim} 
-   8  	Fim
- [0008,0001] (0056,               ER_PR) {Fim} 
+   7  	Fim
+ [0007,0001] (0014,              PR_FIM) {Fim} 
+   8  Fim
+ [0008,0001] (0014,              PR_FIM) {Fim} 
    9  
-  10  	Funcao Inteiro Principal ( ) Inicio
+  10  Funcao Inteiro Main ( ) Inicio
  [0010,0001] (0015,           PR_FUNCAO) {Funcao} 
  [0010,0002] (0002,          PR_INTEIRO) {Inteiro} 
- [0010,0003] (0024,        PR_PRINCIPAL) {Principal} 
+ [0010,0003] (0056,               ER_PR) {Main} 
  [0010,0004] (0044,              AB_PAR) {(} 
  [0010,0005] (0045,              FC_PAR) {)} 
- [0010,0006] (0056,               ER_PR) {Inicio} 
-  11  		Inteiro n;
+ [0010,0006] (0013,           PR_INICIO) {Inicio} 
+  11  	Inteiro n;
  [0011,0001] (0002,          PR_INTEIRO) {Inteiro} 
  [0011,0002] (0000,                  ID) {n} 
  [0011,0003] (0048,            TERMINAL) {;} 
-  12  		Imprimir(“Digite o tamanho da sequencia: “);
+  12  	Imprimir(“Digite o tamanho da sequencia: “);
  [0012,0001] (0007,         PR_IMPRIMIR) {Imprimir} 
  [0012,0002] (0044,              AB_PAR) {(} 
  [0012,0003] (0056,               ER_PR) {Digite} 
@@ -66,27 +66,27 @@
  [0012,0007] (0000,                  ID) {sequencia} 
  [0012,0008] (0045,              FC_PAR) {)} 
  [0012,0009] (0048,            TERMINAL) {;} 
-  13  		Entrada(n);
+  13  	Entrada(n);
  [0013,0001] (0006,          PR_ENTRADA) {Entrada} 
  [0013,0002] (0044,              AB_PAR) {(} 
  [0013,0003] (0000,                  ID) {n} 
  [0013,0004] (0045,              FC_PAR) {)} 
  [0013,0005] (0048,            TERMINAL) {;} 
-  14  		Inteiro i = 0;
+  14  	Inteiro i = 0;
  [0014,0001] (0002,          PR_INTEIRO) {Inteiro} 
  [0014,0002] (0000,                  ID) {i} 
  [0014,0003] (0025,              OP_ATR) {=} 
  [0014,0004] (0049,             CTE_INT) {0} 
  [0014,0005] (0048,            TERMINAL) {;} 
-  15  		Enquanto(i < n) Inicio
+  15  	Enquanto(i < n) Inicio
  [0015,0001] (0011,         PR_ENQUANTO) {Enquanto} 
  [0015,0002] (0044,              AB_PAR) {(} 
  [0015,0003] (0000,                  ID) {i} 
  [0015,0004] (0033,            OP_MENOR) {<} 
  [0015,0005] (0000,                  ID) {n} 
  [0015,0006] (0045,              FC_PAR) {)} 
- [0015,0007] (0056,               ER_PR) {Inicio} 
-  16  			Se (fibonacci(i+1)>n) Inicio
+ [0015,0007] (0013,           PR_INICIO) {Inicio} 
+  16  		Se (fibonacci(i+1)>n) Inicio
  [0016,0001] (0009,               PR_SE) {Se} 
  [0016,0002] (0044,              AB_PAR) {(} 
  [0016,0003] (0000,                  ID) {fibonacci} 
@@ -98,8 +98,8 @@
  [0016,0009] (0032,            OP_MAIOR) {>} 
  [0016,0010] (0000,                  ID) {n} 
  [0016,0011] (0045,              FC_PAR) {)} 
- [0016,0012] (0056,               ER_PR) {Inicio} 
-  17  				Imprimir(fibonacci(i));
+ [0016,0012] (0013,           PR_INICIO) {Inicio} 
+  17  			Imprimir(fibonacci(i));
  [0017,0001] (0007,         PR_IMPRIMIR) {Imprimir} 
  [0017,0002] (0044,              AB_PAR) {(} 
  [0017,0003] (0000,                  ID) {fibonacci} 
@@ -108,12 +108,12 @@
  [0017,0006] (0045,              FC_PAR) {)} 
  [0017,0007] (0045,              FC_PAR) {)} 
  [0017,0008] (0048,            TERMINAL) {;} 
-  18  			Fim
- [0018,0001] (0056,               ER_PR) {Fim} 
-  19  			Porem Inicio
+  18  		Fim
+ [0018,0001] (0014,              PR_FIM) {Fim} 
+  19  		Porem Inicio
  [0019,0001] (0010,            PR_POREM) {Porem} 
- [0019,0002] (0056,               ER_PR) {Inicio} 
-  20  				Imprimir(fibonacci(i) & “, ”);
+ [0019,0002] (0013,           PR_INICIO) {Inicio} 
+  20  			Imprimir(fibonacci(i) & “, ”);
  [0020,0001] (0007,         PR_IMPRIMIR) {Imprimir} 
  [0020,0002] (0044,              AB_PAR) {(} 
  [0020,0003] (0000,                  ID) {fibonacci} 
@@ -124,21 +124,21 @@
  [0020,0008] (0043,               DELIM) {,} 
  [0020,0009] (0045,              FC_PAR) {)} 
  [0020,0010] (0048,            TERMINAL) {;} 
-  21  			Fim
- [0021,0001] (0056,               ER_PR) {Fim} 
-  22  			i = i + 1;
+  21  		Fim
+ [0021,0001] (0014,              PR_FIM) {Fim} 
+  22  		i = i + 1;
  [0022,0001] (0000,                  ID) {i} 
  [0022,0002] (0025,              OP_ATR) {=} 
  [0022,0003] (0000,                  ID) {i} 
  [0022,0004] (0027,              OP_ADI) {+} 
  [0022,0005] (0049,             CTE_INT) {1} 
  [0022,0006] (0048,            TERMINAL) {;} 
-  23  		Fim
- [0023,0001] (0056,               ER_PR) {Fim} 
+  23  	Fim
+ [0023,0001] (0014,              PR_FIM) {Fim} 
   24  
-  25  		Devolve;
+  25  	Devolve;
  [0025,0001] (0016,          PR_DEVOLVE) {Devolve} 
  [0025,0002] (0048,            TERMINAL) {;} 
-  26  	Fim
- [0026,0001] (0056,               ER_PR) {Fim} 
+  26  Fim
+ [0026,0001] (0014,              PR_FIM) {Fim} 
  [0026,0001] (0001,                 EOF) {EOF} 

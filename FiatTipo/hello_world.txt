@@ -4,7 +4,7 @@
  [0001,0003] (0024,        PR_PRINCIPAL) {Principal} 
  [0001,0004] (0044,              AB_PAR) {(} 
  [0001,0005] (0045,              FC_PAR) {)} 
- [0001,0006] (0056,               ER_PR) {Inicio} 
+ [0001,0006] (0013,           PR_INICIO) {Inicio} 
    2      Imprimir("Alo mundo");
  [0002,0001] (0007,         PR_IMPRIMIR) {Imprimir} 
  [0002,0002] (0044,              AB_PAR) {(} 
@@ -13,5 +13,5 @@
  [0002,0005] (0045,              FC_PAR) {)} 
  [0002,0006] (0048,            TERMINAL) {;} 
    3  Fim
- [0003,0001] (0056,               ER_PR) {Fim} 
+ [0003,0001] (0014,              PR_FIM) {Fim} 
  [0003,0001] (0001,                 EOF) {EOF} 
