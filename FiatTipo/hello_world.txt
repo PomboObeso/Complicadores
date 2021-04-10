@@ -1,0 +1,17 @@
+   1  Funcao Inteiro Principal ( ) Inicio
+ [0001,0001] (0015,           PR_FUNCAO) {Funcao} 
+ [0001,0002] (0002,          PR_INTEIRO) {Inteiro} 
+ [0001,0003] (0024,        PR_PRINCIPAL) {Principal} 
+ [0001,0004] (0044,              AB_PAR) {(} 
+ [0001,0005] (0045,              FC_PAR) {)} 
+ [0001,0006] (0056,               ER_PR) {Inicio} 
+   2      Imprimir("Alo mundo");
+ [0002,0001] (0007,         PR_IMPRIMIR) {Imprimir} 
+ [0002,0002] (0044,              AB_PAR) {(} 
+ [0002,0003] (0056,               ER_PR) {Alo} 
+ [0002,0004] (0000,                  ID) {mundo} 
+ [0002,0005] (0045,              FC_PAR) {)} 
+ [0002,0006] (0048,            TERMINAL) {;} 
+   3  Fim
+ [0003,0001] (0056,               ER_PR) {Fim} 
+ [0003,0001] (0001,                 EOF) {EOF} 

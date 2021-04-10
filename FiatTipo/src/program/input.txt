@@ -1,5 +1,3 @@
-BEGIN
-    Imprimir("Meu pau");
-    a + b;
-    a <= c;
-END
+Funcao Inteiro Principal ( ) Inicio
+    Imprimir("Alo mundo");
+Fim
