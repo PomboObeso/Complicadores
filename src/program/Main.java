@@ -1,21 +1,18 @@
 package program;
 
 import exceptions.FTExceptions;
-import lexico.Lexicon;
 import lexico.Token;
+import sintatico.Sintatico;
 
 public class Main {
 
 	public static void main(String[] args) {
-		Lexicon lex = new Lexicon("/home/beelzebub/eclipse-workspace/compilador_tipo/src/program/input.txt");
+		//Lexicon lex = new Lexicon("/home/beelzebub/eclipse-workspace/compilador_tipo/src/program/input.txt");
 		Token tk = null;
 		try {
-			do {
-				tk = lex.nextToken();
-				if(tk != null) {
-					System.out.println(tk);
-				}
-			}while(tk.lexema != "EOF");
+			String path = "/home/beelzebub/eclipse-workspace/compilador_tipo/src/program/input.txt";
+			Sintatico sint = new Sintatico(path);
+					
 		}catch(FTExceptions ft) {
 			System.out.println("Erro Lexico:"+ft.getMessage());
 		}catch(Exception ex) {

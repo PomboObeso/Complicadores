@@ -38,7 +38,7 @@ public class Sintatico {
     }
 
     public void FS() {
-        if (checkCategory(EnumTokens.PR_INTEIRO, EnumTokens.PR_FLUTUANTE, EnumTokens.PR_BOOLEANO, EnumTokens.PR_CARACTER, EnumTokens.PR_CONJUNTODEPALAVRAS)) {
+        if (checkCategory(EnumTokens.PR_INTEIRO,EnumTokens.PR_FLUTUANTE, EnumTokens.PR_BOOLEANO, EnumTokens.PR_CARACTER, EnumTokens.PR_CONJUNTODEPALAVRAS)) {
             printProduction("S", "DeclId S");
             fDeclId();
             FS();
@@ -61,11 +61,15 @@ public class Sintatico {
 
     public void fType() {
         if (checkCategory(EnumTokens.PR_INTEIRO)) {
-            printProduction("Type", "'Integer'");
+            printProduction("Type", "'Inteiro'");
             System.out.println(token);
             setNextToken();
         } else if (checkCategory(EnumTokens.PR_FLUTUANTE)) {
             printProduction("Type", "'Float'");
+            System.out.println(token);
+            setNextToken();
+        } else if (checkCategory(EnumTokens.PR_VAZIO)) {
+            printProduction("Type", "'Vazio'");
             System.out.println(token);
             setNextToken();
         } else if (checkCategory(EnumTokens.PR_BOOLEANO)) {
