@@ -593,37 +593,37 @@ public class Sintatico {
         } else if (checkCategory(EnumTokens.AB_PAR, EnumTokens.OP_SUB, EnumTokens.CTE_INT, EnumTokens.CTE_BOOL, EnumTokens.CTE_CHR, EnumTokens.CTE_FLT, EnumTokens.CTE_CDP, EnumTokens.ID)) {
             printProduction("Fb", "Ra Fbr");
             fRa();
-            fFbr();
+            FbLL();
         }
     }
  
-    public void fFbr() {
+    public void FbLL() {
         if (checkCategory(EnumTokens.OP_MAIOR)) {
-            printProduction("Fbr", "'opGreater' Ra Fbr");
+            printProduction("FbLL", "'OP_MAIOR' Ra FbLL");
             System.out.println(token);
             setNextToken();
             fRa();
-            fFbr();
+            FbLL();
         } else if (checkCategory(EnumTokens.OP_MENOR)) {
-            printProduction("Fbr", "'opLesser' Ra Fbr");
+            printProduction("FbLL", "'OP_MENOR' Ra FbLL");
             System.out.println(token);
             setNextToken();
             fRa();
-            fFbr();
+            FbLL();
         } else if (checkCategory(EnumTokens.OP_MAIORIG)) {
-            printProduction("Fbr", "'opGreq' Ra Fbr");
+            printProduction("FbLL", "'OP_MAIORIG' Ra FbLL");
             System.out.println(token);
             setNextToken();
             fRa();
-            fFbr();
+            FbLL();
         } else if (checkCategory(EnumTokens.OP_MENORIG)) {
-            printProduction("Fbr", "'opLeq' Ra Fbr");
+            printProduction("FbLL", "'OP_MENORIG' Ra FbLL");
             System.out.println(token);
             setNextToken();
             fRa();
-            fFbr();
+            FbLL();
         } else {
-            printProduction("Fbr", epsilon);
+            printProduction("FbLL", epsilon);
         }
     }
  
