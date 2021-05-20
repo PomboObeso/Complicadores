@@ -454,23 +454,23 @@ public class Sintatico {
             System.out.println(token);
             setNextToken();
             fArrayOpt();
-            fScanLParamr();
+            entradaParamLL();
         }
     }
  
-    public void fScanLParamr() {
+    public void entradaParamLL() {
         if (checkCategory(EnumTokens.DELIM)) {
-            printProduction("ScanLParamr", "',' 'id' ArrayOpt ScanLParamr");
+            printProduction("entradaParamLL", "',' 'id' VetTipo entradaParamLL");
             System.out.println(token);
             setNextToken();
             if (checkCategory(EnumTokens.ID)) {
                 System.out.println(token);
                 setNextToken();
                 fArrayOpt();
-                fScanLParamr();
+                entradaParamLL();
             }
         } else {
-            printProduction("ScanLParamr", epsilon);
+            printProduction("entradaParamLL", epsilon);
         }
     }
  
