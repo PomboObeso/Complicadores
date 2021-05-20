@@ -652,31 +652,31 @@ public class Sintatico {
     }
  
     public void fEa() {
-        printProduction("Ea", "Ta Ear");
+        printProduction("Ea", "Ta EaLL");
         fTa();
-        fEar();
+        EaLL();
     }
  
-    public void fEar() {
+    public void EaLL() {
         if (checkCategory(EnumTokens.OP_ADI)) {
-            printProduction("Ear", "'opAdd' Ta Ear");
+            printProduction("EaLL", "'OP_ADI' Ta Ear");
             System.out.println(token);
             setNextToken();
             fTa();
-            fEar();
+            EaLL();
         } else if (checkCategory(EnumTokens.OP_SUB)) {
-            printProduction("Ear", "'opSub' Ta Ear");
+            printProduction("EaLL", "'OP_SUB' Ta EaLL");
             System.out.println(token);
             setNextToken();
             fTa();
-            fEar();
+            EaLL();
         } else {
-            printProduction("Ear", epsilon);
+            printProduction("EaLL", epsilon);
         }
     }
  
     public void fTa() {
-        printProduction("Ta", "Pa Tar");
+        printProduction("Ta", "Pa TaLL");
         fPa();
         TaLL();
     }
@@ -700,7 +700,7 @@ public class Sintatico {
     }
  
     public void fPa() {
-        printProduction("Pa", "Fa Par");
+        printProduction("Pa", "Fa PaLL");
         fFa();
         PaLL();
     }
