@@ -292,13 +292,13 @@ public class Sintatico {
             printProduction("BodyPartr", "'id' ParamAttr");
             System.out.println(token);
             setNextToken();
-            PaLLamAttr();
+            fParamAtr();
         }
     }
  
-    public void PaLLamAttr() {
+    public void fParamAtr() {
         if (checkCategory(EnumTokens.AB_PAR)) {
-            printProduction("ParamAttrib", "'(' LParamCall ')'");
+            printProduction("ParamAtr", "'(' ParamFun ')'");
             System.out.println(token);
             setNextToken();
             fLParamCall();
@@ -308,13 +308,13 @@ public class Sintatico {
                 setNextToken();
             }
         } else if (checkCategory(EnumTokens.OP_ATR)) {
-            printProduction("ParamAttrib", "'=' Ec LAttr");
+            printProduction("ParamAtr", "'=' Ec lAtr");
             System.out.println(token);
             setNextToken();
             fEc();
             lAtr();
         } else if (checkCategory(EnumTokens.AB_COL)) {
-            printProduction("ParamAttrib", "'[' Ea ']' '=' Ec LAttr");
+            printProduction("ParamAtr", "'[' Ea ']' '=' Ec lAtr");
             System.out.println(token);
             setNextToken();
             fEa();
