@@ -276,7 +276,7 @@ public class Sintatico {
             printProduction("BodyPart", "'return' Return ';'");
             System.out.println(token);
             setNextToken();
-            fReturn();
+            devolve();
             if (!checkCategory(EnumTokens.TERMINAL)) {
             } else {
                 System.out.println(token);
@@ -348,12 +348,12 @@ public class Sintatico {
         }
     }
  
-    public void fReturn() {
+    public void devolve() {
         if (checkCategory(EnumTokens.AB_PAR, EnumTokens.OP_SUB, EnumTokens.CTE_INT, EnumTokens.CTE_BOOL, EnumTokens.CTE_CHR, EnumTokens.CTE_FLT, EnumTokens.CTE_CDP, EnumTokens.ID)) {
-            printProduction("Return", "Ec");
+            printProduction("Devolve", "Ec");
             fEc();
         } else {
-            printProduction("Return", epsilon);
+            printProduction("Devolve", epsilon);
         }
     }
  
