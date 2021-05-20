@@ -628,26 +628,26 @@ public class Sintatico {
     }
  
     public void fRa() {
-        printProduction("Ra", "Ea Rar");
+        printProduction("Ra", "Ea RaLL");
         fEa();
-        fRar();
+        RaLL();
     }
  
-    public void fRar() {
+    public void RaLL() {
         if (checkCategory(EnumTokens.OP_REL)) {
-            printProduction("Rar", "'opEquals' Ea Rar");
+            printProduction("RaLL", "'OP_REL' Ea RaLL");
             System.out.println(token);
             setNextToken();
             fEa();
-            fRar();
+            RaLL();
         } else if (checkCategory(EnumTokens.OP_NEG)) {
-            printProduction("Rar", "'opNotEqual' Ea Rar");
+            printProduction("RaLL", "'OP_NEG' Ea RaLL");
             System.out.println(token);
             setNextToken();
             fEa();
-            fRar();
+            RaLL();
         } else {
-            printProduction("Rar", epsilon);
+            printProduction("RaLL", epsilon);
         }
     }
  
