@@ -430,7 +430,7 @@ public class Sintatico {
                     System.out.println(token);
                     setNextToken();
                     fBody();
-                    fIfr();
+                    fSeLL();
                 }
             }
         }
@@ -493,7 +493,7 @@ public class Sintatico {
                             System.out.println(token);
                             setNextToken();
                             fEa();
-                            fForStep();
+                            repitaPasso();
                             if (checkCategory(EnumTokens.FC_PAR)) {
                                 System.out.println(token);
                                 setNextToken();
@@ -506,9 +506,9 @@ public class Sintatico {
         }
     }
  
-    public void fForStep() {
+    public void repitaPasso() {
         if (checkCategory(EnumTokens.DELIM)) {
-            printProduction("ForStep", "',' Ea");
+            printProduction("repitaPasso", "',' Ea");
             System.out.println(token);
             setNextToken();
             fEa();
@@ -517,14 +517,14 @@ public class Sintatico {
         }
     }
  
-    public void fIfr() {
+    public void fSeLL() {
         if (checkCategory(EnumTokens.PR_POREM)) {
-            printProduction("Ifr", "'condElse' Body");
+            printProduction("fSeLL", "'PR_POREM' Body");
             System.out.println(token);
             setNextToken();
             fBody();
         } else {
-            printProduction("Ifr", epsilon);
+            printProduction("fSeLL", epsilon);
         }
     }
  
