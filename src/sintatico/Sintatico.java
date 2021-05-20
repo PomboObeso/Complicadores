@@ -734,7 +734,7 @@ public class Sintatico {
             setNextToken();
             fFa();
         } else if (checkCategory(EnumTokens.ID)) {
-            fIdOrFunCall();
+            IdFunCham();
         } else if (checkCategory(EnumTokens.CTE_BOOL)) {
             printProduction("Fa", "'constBool'");
             System.out.println(token);
@@ -758,18 +758,18 @@ public class Sintatico {
         }
     }
  
-    public void fIdOrFunCall() {
+    public void IdFunCham() {
         if (checkCategory(EnumTokens.ID)) {
             printProduction("IdOrFunCall", "'id' IdOrFunCallr");
             System.out.println(token);
             setNextToken();
-            fIdOrFunCallr();
+            IdFunCham_LL();
         }
     }
  
-    public void fIdOrFunCallr() {
+    public void IdFunCham_LL() {
         if (checkCategory(EnumTokens.AB_PAR)) {
-            printProduction("IdOrFunCallr", "'(' LParamCall ')'");
+            printProduction("IdFunCham", "'(' ParamFun ')'");
             System.out.println(token);
             setNextToken();
             fLParamCall();
@@ -779,7 +779,7 @@ public class Sintatico {
                 setNextToken();
             }
         } else if (checkCategory(EnumTokens.AB_COL)) {
-            printProduction("IdOrFunCallr", "'[' Ea ']'");
+            printProduction("IdFunCham_LL", "'[' Ea ']'");
             System.out.println(token);
             setNextToken();
             fEa();
@@ -789,7 +789,7 @@ public class Sintatico {
                 setNextToken();
             }
         } else {
-            printProduction("IdOrFunCallr", epsilon);
+            printProduction("IdFunCham_LL", epsilon);
         }
     }
 }

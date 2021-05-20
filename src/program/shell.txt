@@ -30,7 +30,7 @@ Funcao Inteiro Principal ( ) Inicio
 
 		Imprimir('Digite aleatoriamente os numero para serem ordenados: ');
         Repita (Inteiro i = 0, 1, n) Inicio
-	        Input(array[i]);
+	        Entrada(array[i]);
         Fim
         Imprimir('Valores adicionados: ');
         Repita (Inteiro i = 0, 1, n) Inicio

@@ -10,7 +10,7 @@ public class Main {
 		//Lexicon lex = new Lexicon("/home/beelzebub/eclipse-workspace/compilador_tipo/src/program/fibonacci.txt");
 		Token tk = null;
 		try {
-			String path = "/home/beelzebub/eclipse-workspace/compilador_tipo/src/program/fibonacci.txt";
+			String path = "/home/beelzebub/eclipse-workspace/compilador_tipo/src/program/shell.txt";
 			Sintatico sint = new Sintatico(path);
 					
 		}catch(FTExceptions ft) {
