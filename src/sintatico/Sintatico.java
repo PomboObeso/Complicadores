@@ -729,30 +729,30 @@ public class Sintatico {
                 setNextToken();
             }
         } else if (checkCategory(EnumTokens.OP_SUB)) {
-            printProduction("Fa", "'opSub' Fa");
+            printProduction("Fa", "'OP_SUB' Fa");
             System.out.println(token);
             setNextToken();
             fFa();
         } else if (checkCategory(EnumTokens.ID)) {
             IdFunCham();
         } else if (checkCategory(EnumTokens.CTE_BOOL)) {
-            printProduction("Fa", "'constBool'");
+            printProduction("Fa", "'CTE_BOOL'");
             System.out.println(token);
             setNextToken();
         } else if (checkCategory(EnumTokens.CTE_CHR)) {
-            printProduction("Fa", "'constChar'");
+            printProduction("Fa", "'CTE_CHR'");
             System.out.println(token);
             setNextToken();
         } else if (checkCategory(EnumTokens.CTE_FLT)) {
-            printProduction("Fa", "'constFloat'");
+            printProduction("Fa", "'CTE_FLT'");
             System.out.println(token);
             setNextToken();
         } else if (checkCategory(EnumTokens.CTE_INT)) {
-            printProduction("Fa", "'constInt'");
+            printProduction("Fa", "'CTE_INT'");
             System.out.println(token);
             setNextToken();
         } else if (checkCategory(EnumTokens.CTE_CDP)) {
-            printProduction("Fa", "'constStr'");
+            printProduction("Fa", "'CTE_CDP'");
             System.out.println(token);
             setNextToken();
         }
@@ -760,7 +760,7 @@ public class Sintatico {
  
     public void IdFunCham() {
         if (checkCategory(EnumTokens.ID)) {
-            printProduction("IdOrFunCall", "'id' IdOrFunCallr");
+            printProduction("IdFunCham", "'id' IdFunCham_LL");
             System.out.println(token);
             setNextToken();
             IdFunCham_LL();
@@ -769,7 +769,7 @@ public class Sintatico {
  
     public void IdFunCham_LL() {
         if (checkCategory(EnumTokens.AB_PAR)) {
-            printProduction("IdFunCham", "'(' ParamFun ')'");
+            printProduction("IdFunCham_LL", "'(' ParamFun ')'");
             System.out.println(token);
             setNextToken();
             fLParamCall();
