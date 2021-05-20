@@ -292,11 +292,11 @@ public class Sintatico {
             printProduction("BodyPartr", "'id' ParamAttr");
             System.out.println(token);
             setNextToken();
-            fParamAttr();
+            PaLLamAttr();
         }
     }
  
-    public void fParamAttr() {
+    public void PaLLamAttr() {
         if (checkCategory(EnumTokens.AB_PAR)) {
             printProduction("ParamAttrib", "'(' LParamCall ')'");
             System.out.println(token);
@@ -678,42 +678,42 @@ public class Sintatico {
     public void fTa() {
         printProduction("Ta", "Pa Tar");
         fPa();
-        fTar();
+        TaLL();
     }
  
-    public void fTar() {
+    public void TaLL() {
         if (checkCategory(EnumTokens.OP_MULT)) {
-            printProduction("Tar", "'opMult' Pa Tar");
+            printProduction("TaLL", "'OP_MULT' Pa TaLL");
             System.out.println(token);
             setNextToken();
             fPa();
-            fTar();
+            TaLL();
         } else if (checkCategory(EnumTokens.OP_DIV)) {
-            printProduction("Tar", "'opDiv' Pa Tar");
+            printProduction("TaLL", "'OP_DIV' Pa TaLL");
             System.out.println(token);
             setNextToken();
             fPa();
-            fTar();
+            TaLL();
         } else {
-            printProduction("Tar", epsilon);
+            printProduction("TaLL", epsilon);
         }
     }
  
     public void fPa() {
         printProduction("Pa", "Fa Par");
         fFa();
-        fPar();
+        PaLL();
     }
  
-    public void fPar() {
+    public void PaLL() {
         if (checkCategory(EnumTokens.OP_RES)) {
-            printProduction("Par", "'opPow' Fa Par");
+            printProduction("PaLL", "'OP_RES' Fa Par");
             System.out.println(token);
             setNextToken();
             fFa();
-            fPar();
+            PaLL();
         } else {
-            printProduction("Par", epsilon);
+            printProduction("PaLL", epsilon);
         }
     }
  
