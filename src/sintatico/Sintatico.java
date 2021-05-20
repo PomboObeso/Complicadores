@@ -531,43 +531,41 @@ public class Sintatico {
     public void fEc() {
         printProduction("Ec", "Fc Ecr");
         fEb();
-        fEcr();
+        EcLL();
     }
  
-    public void fEcr() {
-        //setNextToken();
+    public void EcLL() {
         if (checkCategory(EnumTokens.OP_CONC)) {
-            printProduction("Ecr", "'opConcat' Fc Ecr");
+            printProduction("EcLL", "'OP_CONC' Fc EcLL");
             System.out.println(token);
             setNextToken();
             fEb();
-            //setNextToken();
-            fEcr();
+            EcLL();
         } else {
-            printProduction("Ecr", epsilon);
+            printProduction("EcLL", epsilon);
         }
     }
  
     public void fEb() {
         printProduction("Eb", "Tb Ebr");
         fTb();
-        fEbr();
+        EbLL();
     }
  
-    public void fEbr() {
+    public void EbLL() {
         if (checkCategory(EnumTokens.PR_OU)) {
-            printProduction("Ebr", "'opOr' Tb Ebr");
+            printProduction("EbLL", "'OP_OU' Tb EbLL");
             System.out.println(token);
             setNextToken();
             fTb();
-            fEbr();
+            EbLL();
         } else {
-            printProduction("Ebr", epsilon);
+            printProduction("EbLL", epsilon);
         }
     }
  
     public void fTb() {
-        printProduction("Tb", "Fb Tbr");
+        printProduction("Tb", "Fb TbLL");
         fFb();
         TbLL();
     }
