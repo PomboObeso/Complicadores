@@ -120,7 +120,7 @@ public class Sintatico {
             printProduction("Id", "'id' ArrayOpt");
             System.out.println(token);
             setNextToken();
-            fArrayOpt();
+            vetTipo();
         }
     }
  
@@ -198,32 +198,32 @@ public class Sintatico {
             if (checkCategory(EnumTokens.ID)) {
                 System.out.println(token);
                 setNextToken();
-                fArrayOpt();
-                fLParamDeclr();
+                vetTipo();
+                constDcLL();
             }
         }else {
             printProduction("LParamDecl", epsilon);
         }
     }
  
-    public void fLParamDeclr() {
+    public void constDcLL() {
         if (checkCategory(EnumTokens.DELIM)) {
-            printProduction("LParamDeclr", "',' Type 'id' ArrayOpt LParamDeclr");
+            printProduction("ConstDc_LL", "',' Tipo 'id' VetTipo ConstDc_LL");
             System.out.println(token);
             setNextToken();
             fType();
             if (checkCategory(EnumTokens.ID)) {
                 System.out.println(token);
                 setNextToken();
-                fArrayOpt();
-                fLParamDeclr();
+                vetTipo();
+                constDcLL();
             }
         }
     }
  
-    public void fArrayOpt() {
+    public void vetTipo() {
         if (checkCategory(EnumTokens.AB_COL)) {
-            printProduction("ArrayOpt", "'[' Ea ']'");
+            printProduction("VetTipo", "'[' Ea ']'");
             System.out.println(token);
             setNextToken();
             fEa();
@@ -233,7 +233,7 @@ public class Sintatico {
                 setNextToken();
             }
         } else {
-            printProduction("ArrayOpt", epsilon);
+            printProduction("VetTipo", epsilon);
         }
     }
  
@@ -453,7 +453,7 @@ public class Sintatico {
             printProduction("entradaParam", "'id' VetTipo entradaParamLL");
             System.out.println(token);
             setNextToken();
-            fArrayOpt();
+            vetTipo();
             entradaParamLL();
         }
     }
@@ -466,7 +466,7 @@ public class Sintatico {
             if (checkCategory(EnumTokens.ID)) {
                 System.out.println(token);
                 setNextToken();
-                fArrayOpt();
+                vetTipo();
                 entradaParamLL();
             }
         } else {
