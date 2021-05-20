@@ -151,7 +151,7 @@ public class Sintatico {
                 if (checkCategory(EnumTokens.FC_PAR)) {
                     System.out.println(token);
                     setNextToken();
-                    fBody();
+                    internoDc();
                 }
             }
         }
@@ -237,10 +237,10 @@ public class Sintatico {
         }
     }
  
-    public void fBody() {
+    public void internoDc() {
         if (checkCategory(EnumTokens.PR_INICIO)) {
             ++scopeCounter;
-            printProduction("Body", "'{' BodyPart '}'");
+            printProduction("InternoDc", "'{' Instrucoes '}'");
             System.out.println(token);
             setNextToken();
             instrucoes();
@@ -410,7 +410,7 @@ public class Sintatico {
                 if (checkCategory(EnumTokens.FC_PAR)) {
                     System.out.println(token);
                     setNextToken();
-                    fBody();
+                    internoDc();
                 }
             }
         } else if (checkCategory(EnumTokens.PR_REPITA)) {
@@ -429,7 +429,7 @@ public class Sintatico {
                 if (checkCategory(EnumTokens.FC_PAR)) {
                     System.out.println(token);
                     setNextToken();
-                    fBody();
+                    internoDc();
                     fSeLL();
                 }
             }
@@ -497,7 +497,7 @@ public class Sintatico {
                             if (checkCategory(EnumTokens.FC_PAR)) {
                                 System.out.println(token);
                                 setNextToken();
-                                fBody();
+                                internoDc();
                             }
                         }
                     }
@@ -522,7 +522,7 @@ public class Sintatico {
             printProduction("fSeLL", "'PR_POREM' Body");
             System.out.println(token);
             setNextToken();
-            fBody();
+            internoDc();
         } else {
             printProduction("fSeLL", epsilon);
         }
