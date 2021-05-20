@@ -417,7 +417,7 @@ public class Sintatico {
             printProduction("Command", "'forLoop' ForParams");
             System.out.println(token);
             setNextToken();
-            fForParams();
+            repita();
         } else if (checkCategory(EnumTokens.PR_SE)) {
             printProduction("Command", "'condIf' '(' Eb ')' Body Ifr");
             System.out.println(token);
@@ -474,9 +474,9 @@ public class Sintatico {
         }
     }
  
-    public void fForParams() {
+    public void repita() {
         if (checkCategory(EnumTokens.AB_PAR)) {
-            printProduction("ForParams", "'(' 'typeInt' 'id' ':'  Ea ',' Ea ForStep ')' Body");
+            printProduction("Repita", "'(' 'Inteiro' 'id' ':'  Ea ',' Ea RepitaPasso ')' InternoDc");
             System.out.println(token);
             setNextToken();
             if (checkCategory(EnumTokens.PR_INTEIRO)) {
