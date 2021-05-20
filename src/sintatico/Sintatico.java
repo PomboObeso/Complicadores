@@ -145,7 +145,7 @@ public class Sintatico {
             if (checkCategory(EnumTokens.AB_PAR)) {
                 System.out.println(token);
                 setNextToken();
-                fLParamDecl();
+                constDc();
  
  
                 if (checkCategory(EnumTokens.FC_PAR)) {
@@ -169,31 +169,31 @@ public class Sintatico {
         }
     }
  
-    public void fLParamCall() {
+    public void paramFun() {
         if (checkCategory(EnumTokens.ID, EnumTokens.AB_PAR, EnumTokens.OP_SUB, EnumTokens.CTE_BOOL, EnumTokens.CTE_CHR, EnumTokens.CTE_FLT, EnumTokens.CTE_INT, EnumTokens.CTE_CDP)) {
-            printProduction("LParamCall", "Ec LParamCallr");
+            printProduction("ParamFun", "Ec ParamFun_LL");
             fEc();
-            fLParamCallr();
+            paramFunLL();
         } else {
-            printProduction("LParamCall", epsilon);
+            printProduction("ParamFun", epsilon);
         }
     }
  
-    public void fLParamCallr() {
+    public void paramFunLL() {
         if (checkCategory(EnumTokens.DELIM)) {
-            printProduction("LParamCallr", "',' Ec LParamCallr");
+            printProduction("ParamFun_LL", "',' Ec ParamFun_LL");
             System.out.println(token);
             setNextToken();
             fEc();
-            fLParamCallr();
+            paramFunLL();
         } else {
-            printProduction("LParamCallr", epsilon);
+            printProduction("ParamFun_LL", epsilon);
         }
     }
  
-    public void fLParamDecl() {
+    public void constDc() {
         if (checkCategory(EnumTokens.PR_BOOLEANO, EnumTokens.PR_CARACTER, EnumTokens.PR_FLUTUANTE, EnumTokens.PR_INTEIRO, EnumTokens.PR_CONJUNTODEPALAVRAS)) {
-            printProduction("LParamDecl", "Type 'id' ArrayOpt LParamDeclr");
+            printProduction("ConstDc", "Tipo 'id' VetTipo ConstDc_LL");
             fType();
             if (checkCategory(EnumTokens.ID)) {
                 System.out.println(token);
@@ -202,7 +202,7 @@ public class Sintatico {
                 constDcLL();
             }
         }else {
-            printProduction("LParamDecl", epsilon);
+            printProduction("ConstDc", epsilon);
         }
     }
  
@@ -301,7 +301,7 @@ public class Sintatico {
             printProduction("ParamAtr", "'(' ParamFun ')'");
             System.out.println(token);
             setNextToken();
-            fLParamCall();
+            paramFun();
             if (!checkCategory(EnumTokens.FC_PAR)) {
             } else {
                 System.out.println(token);
@@ -770,7 +770,7 @@ public class Sintatico {
             printProduction("IdFunCham_LL", "'(' ParamFun ')'");
             System.out.println(token);
             setNextToken();
-            fLParamCall();
+            paramFun();
             if (!checkCategory(EnumTokens.FC_PAR)) {
             } else {
                 System.out.println(token);
