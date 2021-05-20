@@ -44,7 +44,7 @@ public class Sintatico {
             FS();
         } else if (checkCategory(EnumTokens.PR_FUNCAO)) {
             printProduction("S", "FunDecl S");
-            fFunDecl();
+            dcFun();
             FS();
         }  else {
             printProduction("S", epsilon);
@@ -55,7 +55,7 @@ public class Sintatico {
     public void fDeclId() {
         if (checkCategory(EnumTokens.PR_INTEIRO, EnumTokens.PR_FLUTUANTE, EnumTokens.PR_BOOLEANO, EnumTokens.PR_CARACTER, EnumTokens.PR_CONJUNTODEPALAVRAS)) {
             printProduction("DeclId", "Type LId ';'");
-            fType();
+            funTipo();
             fLId();
  
             if (!checkCategory(EnumTokens.TERMINAL)) {
@@ -65,29 +65,29 @@ public class Sintatico {
             }
         }
     }
-    public void fType() {
+    public void funTipo() {
         if (checkCategory(EnumTokens.PR_INTEIRO)) {
-            printProduction("Type", "'Integer'");
+            printProduction("Tipo", "'Inteiro'");
             System.out.println(token);
             setNextToken();
         } else if (checkCategory(EnumTokens.PR_VAZIO)) {
-            printProduction("Type", "'Void'");
+            printProduction("Tipo", "'Vazio'");
             System.out.println(token);
             setNextToken();
         } else if (checkCategory(EnumTokens.PR_FLUTUANTE)) {
-            printProduction("Type", "'Float'");
+            printProduction("Tipo", "'Flutuante'");
             System.out.println(token);
             setNextToken();
         } else if (checkCategory(EnumTokens.PR_BOOLEANO)) {
-            printProduction("Type", "'Bool'");
+            printProduction("Tipo", "'Booleano'");
             System.out.println(token);
             setNextToken();
         } else if (checkCategory(EnumTokens.PR_CARACTER)) {
-            printProduction("Type", "'Character'");
+            printProduction("Tipo", "'Caracter'");
             System.out.println(token);
             setNextToken();
         } else if (checkCategory(EnumTokens.PR_CONJUNTODEPALAVRAS)) {
-            printProduction("Type", "'CharacterArray'");
+            printProduction("Tipo", "'ConjuntoDePalavras'");
             System.out.println(token);
             setNextToken();
         }
@@ -95,23 +95,23 @@ public class Sintatico {
  
     public void fLId() {
         if (checkCategory(EnumTokens.ID)) {
-            printProduction("LId", "Id AttrOpt LIdr");
+            printProduction("LId", "Id Atr Id_LL");
             fId();
-            fAttrOpt();
-            fLIdr();
+            atr();
+            id_LL();
         }
     }
  
-    public void fLIdr() {
+    public void id_LL() {
         if (checkCategory(EnumTokens.DELIM)) {
-            printProduction("LIdr", "',' Id AttrOpt LIdr");
+            printProduction("Id_LL", "',' Id Atr Id_LL");
             System.out.println(token);
             setNextToken();
             fId();
-            fAttrOpt();
-            fLIdr();
+            atr();
+            id_LL();
         } else {
-            printProduction("LIdr", epsilon);
+            printProduction("Id_LL", epsilon);
         }
     }
  
@@ -124,24 +124,24 @@ public class Sintatico {
         }
     }
  
-    public void fAttrOpt() {
+    public void atr() {
         if (checkCategory(EnumTokens.OP_ATR)) {
-            printProduction("AttrOpt", "'=' Ec");
+            printProduction("Atr", "'=' Ec");
             System.out.println(token);
             setNextToken();
             fEc();
         } else {
-            printProduction("AttrOpt", epsilon);
+            printProduction("Atr", epsilon);
         }
     }
  
-    public void fFunDecl() {
+    public void dcFun() {
         if (checkCategory(EnumTokens.PR_FUNCAO)) {
-            printProduction("FunDecl", "'fun' Type FunName '(' LParamDecl ')' Body");
+            printProduction("DcFun", "'Funcao' Tipo NomeFun '(' ConstDc ')' InternoDc");
             System.out.println(token);
             setNextToken();
-            fType();
-            fFunName();
+            funTipo();
+            nomeFun();
             if (checkCategory(EnumTokens.AB_PAR)) {
                 System.out.println(token);
                 setNextToken();
@@ -157,13 +157,13 @@ public class Sintatico {
         }
     }
  
-    public void fFunName() {
+    public void nomeFun() {
         if (checkCategory(EnumTokens.ID)) {
-            printProduction("FunName", "'id'");
+            printProduction("NomeFun", "'id'");
             System.out.println(token);
             setNextToken();
         } else if (checkCategory(EnumTokens.PR_PRINCIPAL)) {
-            printProduction("FunName", "'main'");
+            printProduction("NomeFun", "'Principal'");
             System.out.println(token);
             setNextToken();
         }
@@ -194,7 +194,7 @@ public class Sintatico {
     public void constDc() {
         if (checkCategory(EnumTokens.PR_BOOLEANO, EnumTokens.PR_CARACTER, EnumTokens.PR_FLUTUANTE, EnumTokens.PR_INTEIRO, EnumTokens.PR_CONJUNTODEPALAVRAS)) {
             printProduction("ConstDc", "Tipo 'id' VetTipo ConstDc_LL");
-            fType();
+            funTipo();
             if (checkCategory(EnumTokens.ID)) {
                 System.out.println(token);
                 setNextToken();
@@ -211,7 +211,7 @@ public class Sintatico {
             printProduction("ConstDc_LL", "',' Tipo 'id' VetTipo ConstDc_LL");
             System.out.println(token);
             setNextToken();
-            fType();
+            funTipo();
             if (checkCategory(EnumTokens.ID)) {
                 System.out.println(token);
                 setNextToken();
