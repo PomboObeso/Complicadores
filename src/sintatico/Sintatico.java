@@ -243,7 +243,7 @@ public class Sintatico {
             printProduction("Body", "'{' BodyPart '}'");
             System.out.println(token);
             setNextToken();
-            fBodyPart();
+            instrucoes();
             if (!checkCategory(EnumTokens.PR_FIM)) {
             } else {
                 System.out.println(token);
@@ -253,27 +253,27 @@ public class Sintatico {
         }
     }
  
-    public void fBodyPart() {
+    public void instrucoes() {
         if (checkCategory(EnumTokens.PR_INTEIRO, EnumTokens.PR_FLUTUANTE, EnumTokens.PR_BOOLEANO, EnumTokens.PR_CARACTER, EnumTokens.PR_CONJUNTODEPALAVRAS)) {
-            printProduction("BodyPart", "DeclId BodyPart");
+            printProduction("Instrucoes", "DeclId BodyPart");
             fDeclId();
-            fBodyPart();
+            instrucoes();
         } else if (checkCategory(EnumTokens.PR_IMPRIMIR,EnumTokens.PR_IMPRIMIRNL,EnumTokens.PR_ENTRADA, EnumTokens.PR_ENQUANTO, EnumTokens.PR_REPITA, EnumTokens.PR_SE)) {
             System.out.println(token.lexema);
-            printProduction("BodyPart", "Command BodyPart");
+            printProduction("Instrucoes", "Command BodyPart");
             comando();
-            fBodyPart();
+            instrucoes();
         } else if (checkCategory(EnumTokens.ID)) {
-            printProduction("BodyPart", "BodyPartr ';' BodyPart");
-            fBodyPartr();
+            printProduction("Instrucoes", "InstrucoesLL ';' BodyPart");
+            instrucoesLL();
             if (!checkCategory(EnumTokens.TERMINAL)) {
             } else {
                 System.out.println(token);
                 setNextToken();
             }
-            fBodyPart();
+            instrucoes();
         } else if (checkCategory(EnumTokens.PR_DEVOLVE)) {
-            printProduction("BodyPart", "'return' Return ';'");
+            printProduction("Instrucoes", "'Devolve' Devolve ';'");
             System.out.println(token);
             setNextToken();
             devolve();
@@ -283,13 +283,13 @@ public class Sintatico {
                 setNextToken();
             }
         } else {
-            printProduction("BodyPart", epsilon);
+            printProduction("Instrucoes", epsilon);
         }
     }
  
-    public void fBodyPartr() {
+    public void instrucoesLL() {
         if (checkCategory(EnumTokens.ID)) {
-            printProduction("BodyPartr", "'id' ParamAttr");
+            printProduction("instrucoesLL", "'id' ParamAtr");
             System.out.println(token);
             setNextToken();
             fParamAtr();
