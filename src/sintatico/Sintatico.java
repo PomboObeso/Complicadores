@@ -569,29 +569,29 @@ public class Sintatico {
     public void fTb() {
         printProduction("Tb", "Fb Tbr");
         fFb();
-        fTbr();
+        TbLL();
     }
  
-    public void fTbr() {
+    public void TbLL() {
         if (checkCategory(EnumTokens.PR_E)) {
-            printProduction("Tbr", "'opAnd' Fb Tbr");
+            printProduction("TbLL", "'OP_E' Fb TbLL");
             System.out.println(token);
             setNextToken();
             fFb();
-            fTbr();
+            TbLL();
         } else {
-            printProduction("Tbr", epsilon);
+            printProduction("TbLL", epsilon);
         }
     }
  
     public void fFb() {
         if (checkCategory(EnumTokens.OP_NEG)) {
-            printProduction("Fb", "'opNot' Fb");
+            printProduction("Fb", "'OP_NEG' Fb");
             System.out.println(token);
             setNextToken();
             fFb();
         } else if (checkCategory(EnumTokens.AB_PAR, EnumTokens.OP_SUB, EnumTokens.CTE_INT, EnumTokens.CTE_BOOL, EnumTokens.CTE_CHR, EnumTokens.CTE_FLT, EnumTokens.CTE_CDP, EnumTokens.ID)) {
-            printProduction("Fb", "Ra Fbr");
+            printProduction("Fb", "Ra FbLL");
             fRa();
             FbLL();
         }
