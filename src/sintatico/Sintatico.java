@@ -312,7 +312,7 @@ public class Sintatico {
             System.out.println(token);
             setNextToken();
             fEc();
-            fLAttr();
+            lAtr();
         } else if (checkCategory(EnumTokens.AB_COL)) {
             printProduction("ParamAttrib", "'[' Ea ']' '=' Ec LAttr");
             System.out.println(token);
@@ -325,15 +325,15 @@ public class Sintatico {
                     System.out.println(token);
                     setNextToken();
                     fEc();
-                    fLAttr();
+                    lAtr();
                 }
             }
         }
     }
  
-    public void fLAttr() {
+    public void lAtr() {
         if (checkCategory(EnumTokens.DELIM)) {
-            printProduction("LAttr", "',' Id '=' Ec LAttr");
+            printProduction("lAtr", "',' Id '=' Ec lAtr");
             System.out.println(token);
             setNextToken();
             fId();
@@ -341,10 +341,10 @@ public class Sintatico {
                 System.out.println(token);
                 setNextToken();
                 fEc();
-                fLAttr();
+                lAtr();
             }
         } else {
-            printProduction("LAttr", epsilon);
+            printProduction("lAtr", epsilon);
         }
     }
  
