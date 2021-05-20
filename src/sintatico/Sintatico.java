@@ -261,7 +261,7 @@ public class Sintatico {
         } else if (checkCategory(EnumTokens.PR_IMPRIMIR,EnumTokens.PR_IMPRIMIRNL,EnumTokens.PR_ENTRADA, EnumTokens.PR_ENQUANTO, EnumTokens.PR_REPITA, EnumTokens.PR_SE)) {
             System.out.println(token.lexema);
             printProduction("BodyPart", "Command BodyPart");
-            fCommand();
+            comando();
             fBodyPart();
         } else if (checkCategory(EnumTokens.ID)) {
             printProduction("BodyPart", "BodyPartr ';' BodyPart");
@@ -357,9 +357,9 @@ public class Sintatico {
         }
     }
  
-    public void fCommand() {
+    public void comando() {
         if (checkCategory(EnumTokens.PR_IMPRIMIR ,EnumTokens.PR_IMPRIMIRNL)) {
-            printProduction("Command", "'print' '(' 'constStr' PrintLParam ')' ';'");
+            printProduction("Comando", "'Imprimir' '(' 'CTE_CDP' ImprimirParam ')' ';'");
             System.out.println(token);
             setNextToken();
             if (checkCategory(EnumTokens.AB_PAR)) {
@@ -369,7 +369,7 @@ public class Sintatico {
                 if (checkCategory(EnumTokens.CTE_CDP, EnumTokens.ID)) {
                     System.out.println(token);
                     setNextToken();
-                    fPrintLParam();
+                    imprimirParam();
                     if (checkCategory(EnumTokens.FC_PAR)) {
                         System.out.println(token);
                         setNextToken();
@@ -382,13 +382,13 @@ public class Sintatico {
                 }
             }
         } else if (checkCategory(EnumTokens.PR_ENTRADA)) {
-            printProduction("Command", "'scan' '(' ScanLParam ')' ';'");
+            printProduction("Comando", "'Entrada' '(' EntradaParam ')' ';'");
             System.out.println(token);
             setNextToken();
             if (checkCategory(EnumTokens.AB_PAR)) {
                 System.out.println(token);
                 setNextToken();
-                fScanLParam();
+                entradaParam();
                 if (checkCategory(EnumTokens.FC_PAR)) {
                     System.out.println(token);
                     setNextToken();
@@ -400,7 +400,7 @@ public class Sintatico {
                 }
             }
         } else if (checkCategory(EnumTokens.PR_ENQUANTO)) {
-            printProduction("Command", "'whileLoop' '(' Eb ')' Body");
+            printProduction("Comando", "'Enquanto' '(' Eb ')' InternoDc");
             System.out.println(token);
             setNextToken();
             if (checkCategory(EnumTokens.AB_PAR)) {
@@ -414,12 +414,12 @@ public class Sintatico {
                 }
             }
         } else if (checkCategory(EnumTokens.PR_REPITA)) {
-            printProduction("Command", "'forLoop' ForParams");
+            printProduction("Comando", "'Repita' repitaParam");
             System.out.println(token);
             setNextToken();
             repita();
         } else if (checkCategory(EnumTokens.PR_SE)) {
-            printProduction("Command", "'condIf' '(' Eb ')' Body Ifr");
+            printProduction("Comando", "'Se' '(' Eb ')' InternoDc fSeLL");
             System.out.println(token);
             setNextToken();
             if (checkCategory(EnumTokens.AB_PAR)) {
@@ -436,21 +436,21 @@ public class Sintatico {
         }
     }
  
-    public void fPrintLParam() {
+    public void imprimirParam() {
         if (checkCategory(EnumTokens.DELIM)) {
-            printProduction("PrintLParam", "',' Ec PrintLParam");
+            printProduction("ImprimirParam", "',' Ec ImprimirParam");
             System.out.println(token);
             setNextToken();
             fEc();
-            fPrintLParam();
+            imprimirParam();
         } else {
-            printProduction("PrintLParam", epsilon);
+            printProduction("ImprimirParam", epsilon);
         }
     }
  
-    public void fScanLParam() {
+    public void entradaParam() {
         if (checkCategory(EnumTokens.ID)) {
-            printProduction("ScanLParam", "'id' ArrayOpt ScanLParamr");
+            printProduction("entradaParam", "'id' VetTipo entradaParamLL");
             System.out.println(token);
             setNextToken();
             fArrayOpt();
