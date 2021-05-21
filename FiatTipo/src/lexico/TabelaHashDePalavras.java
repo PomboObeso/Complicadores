@@ -1,4 +1,4 @@
-package src.lexico;
+package lexico;
 
 import java.util.Hashtable;
 

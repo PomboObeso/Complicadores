@@ -1,4 +1,4 @@
-package src.lexico;
+package lexico;
 
 public enum EnumTokens {
 	ID,
@@ -54,6 +54,7 @@ public enum EnumTokens {
 	CTE_FLT,
 	CTE_CDP,
 	CTE_CHR,
+	CTE_BOOL,
 	ER_ID,
 	ER_CHR,
 	ER_NUM,

@@ -1,0 +1,21 @@
+Funcao Inteiro fibonacci(Inteiro n) Inicio
+	Se(n < 2) Inicio
+		Devolve n;
+	Fim
+	Porem Inicio
+		Devolve fibonacci(n - 1) + fibonacci(n - 2);
+	Fim
+Fim
+
+Funcao Inteiro Principal ( ) Inicio
+	Inteiro n;
+	Imprimir('Digite o tamanho da sequencia:');
+	Entrada(n);
+
+	Repita(Inteiro i = 0, 1, n) Inicio
+		total = fibonacci(i);
+        Imprimir(total);
+	Fim
+
+	Devolve;
+Fim

@@ -1,0 +1,49 @@
+Funcao Vazio shellsort(Inteiro array[ ], Inteiro n) Inicio
+		Inteiro h = 1, c, j;
+
+        Enquanto (h < n) Inicio
+			h = h * 3 + 1;
+		Fim
+
+		h = h / 3;
+
+		Enquanto(h > 0) Inicio
+			Repita (Inteiro i = h, 1, n) Inicio
+                    c = array[i];
+                    j = i;
+                    Enquanto (j >= h E array[j - h] > c) Inicio
+                            array[j] = array[j - h];
+                            j = j - h;
+                    Fim
+                    array[j] = c;
+			Fim
+			h = h / 2;
+		Fim
+		Devolve;
+	Fim
+
+Funcao Inteiro Principal ( ) Inicio
+		Inteiro n, v;
+		Imprimir('Digite o tamanho do array a ser ordenado: ');
+		Entrada(n);
+		Inteiro array[n];
+
+		Imprimir('Digite aleatoriamente os numero para serem ordenados: ');
+        Repita (Inteiro i = 0, 1, n) Inicio
+	        Entrada(array[i]);
+        Fim
+        Imprimir('Valores adicionados: ');
+        Repita (Inteiro i = 0, 1, n) Inicio
+            v = array[i];
+	        Imprimirnl(v);
+        Fim
+		shellsort(array[n], n);
+
+		Imprimir('Valores ordenados: ');
+        Repita (Inteiro i = 0, 1, n) Inicio
+            v = array[i];
+	        Imprimirnl(v);
+        Fim
+
+		Devolve;
+Fim

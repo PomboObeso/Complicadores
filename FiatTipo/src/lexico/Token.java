@@ -1,4 +1,4 @@
-package src.lexico;
+package lexico;
 
 public class Token {
 	

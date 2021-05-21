@@ -1,0 +1,348 @@
+   1  Funcao Inteiro fibonacci(Inteiro n) Inicio
+          S = FunDecl S
+          DcFun = 'Funcao' Tipo NomeFun '(' ConstDc ')' InternoDc
+ [0001,0001] (0015,           PR_FUNCAO) {Funcao} 
+          Tipo = 'Inteiro'
+ [0001,0002] (0002,          PR_INTEIRO) {Inteiro} 
+          NomeFun = 'id'
+ [0001,0003] (0000,                  ID) {fibonacci} 
+ [0001,0004] (0044,              AB_PAR) {(} 
+          ConstDc = Tipo 'id' VetTipo ConstDc_LL
+          Tipo = 'Inteiro'
+ [0001,0005] (0002,          PR_INTEIRO) {Inteiro} 
+ [0001,0006] (0000,                  ID) {n} 
+          VetTipo = e
+ [0001,0007] (0045,              FC_PAR) {)} 
+          InternoDc = '{' Instrucoes '}'
+ [0001,0008] (0013,           PR_INICIO) {Inicio} 
+   2  	Se(n < 2) Inicio
+Se
+          Instrucoes = Command BodyPart
+          Comando = 'Se' '(' Eb ')' InternoDc fSeLL
+ [0002,0001] (0009,               PR_SE) {Se} 
+ [0002,0002] (0044,              AB_PAR) {(} 
+          Eb = Tb Ebr
+          Tb = Fb TbLL
+          Fb = Ra FbLL
+          Ra = Ea RaLL
+          Ea = Ta EaLL
+          Ta = Pa TaLL
+          Pa = Fa PaLL
+          IdFunCham = 'id' IdFunCham_LL
+ [0002,0003] (0000,                  ID) {n} 
+          IdFunCham_LL = e
+          PaLL = e
+          TaLL = e
+          EaLL = e
+          RaLL = e
+          FbLL = 'OP_MENOR' Ra FbLL
+ [0002,0004] (0033,            OP_MENOR) {<} 
+          Ra = Ea RaLL
+          Ea = Ta EaLL
+          Ta = Pa TaLL
+          Pa = Fa PaLL
+          Fa = 'CTE_INT'
+ [0002,0005] (0049,             CTE_INT) {2} 
+          PaLL = e
+          TaLL = e
+          EaLL = e
+          RaLL = e
+          FbLL = e
+          TbLL = e
+          EbLL = e
+ [0002,0006] (0045,              FC_PAR) {)} 
+          InternoDc = '{' Instrucoes '}'
+ [0002,0007] (0013,           PR_INICIO) {Inicio} 
+   3  		Devolve n;
+          Instrucoes = 'Devolve' Devolve ';'
+ [0003,0001] (0016,          PR_DEVOLVE) {Devolve} 
+          Devolve = Ec
+          Ec = Fc Ecr
+          Eb = Tb Ebr
+          Tb = Fb TbLL
+          Fb = Ra FbLL
+          Ra = Ea RaLL
+          Ea = Ta EaLL
+          Ta = Pa TaLL
+          Pa = Fa PaLL
+          IdFunCham = 'id' IdFunCham_LL
+ [0003,0002] (0000,                  ID) {n} 
+          IdFunCham_LL = e
+          PaLL = e
+          TaLL = e
+          EaLL = e
+          RaLL = e
+          FbLL = e
+          TbLL = e
+          EbLL = e
+          EcLL = e
+ [0003,0003] (0048,            TERMINAL) {;} 
+   4  	Fim
+ [0004,0001] (0014,              PR_FIM) {Fim} 
+   5  	Porem Inicio
+          fSeLL = 'PR_POREM' Body
+ [0005,0001] (0010,            PR_POREM) {Porem} 
+          InternoDc = '{' Instrucoes '}'
+ [0005,0002] (0013,           PR_INICIO) {Inicio} 
+   6  		Devolve fibonacci(n - 1) + fibonacci(n - 2);
+          Instrucoes = 'Devolve' Devolve ';'
+ [0006,0001] (0016,          PR_DEVOLVE) {Devolve} 
+          Devolve = Ec
+          Ec = Fc Ecr
+          Eb = Tb Ebr
+          Tb = Fb TbLL
+          Fb = Ra FbLL
+          Ra = Ea RaLL
+          Ea = Ta EaLL
+          Ta = Pa TaLL
+          Pa = Fa PaLL
+          IdFunCham = 'id' IdFunCham_LL
+ [0006,0002] (0000,                  ID) {fibonacci} 
+          IdFunCham_LL = '(' ParamFun ')'
+ [0006,0003] (0044,              AB_PAR) {(} 
+          ParamFun = Ec ParamFun_LL
+          Ec = Fc Ecr
+          Eb = Tb Ebr
+          Tb = Fb TbLL
+          Fb = Ra FbLL
+          Ra = Ea RaLL
+          Ea = Ta EaLL
+          Ta = Pa TaLL
+          Pa = Fa PaLL
+          IdFunCham = 'id' IdFunCham_LL
+ [0006,0004] (0000,                  ID) {n} 
+          IdFunCham_LL = e
+          PaLL = e
+          TaLL = e
+          EaLL = 'OP_SUB' Ta EaLL
+ [0006,0005] (0028,              OP_SUB) {-} 
+          Ta = Pa TaLL
+          Pa = Fa PaLL
+          Fa = 'CTE_INT'
+ [0006,0006] (0049,             CTE_INT) {1} 
+          PaLL = e
+          TaLL = e
+          EaLL = e
+          RaLL = e
+          FbLL = e
+          TbLL = e
+          EbLL = e
+          EcLL = e
+          ParamFun_LL = e
+ [0006,0007] (0045,              FC_PAR) {)} 
+          PaLL = e
+          TaLL = e
+          EaLL = 'OP_ADI' Ta Ear
+ [0006,0008] (0027,              OP_ADI) {+} 
+          Ta = Pa TaLL
+          Pa = Fa PaLL
+          IdFunCham = 'id' IdFunCham_LL
+ [0006,0009] (0000,                  ID) {fibonacci} 
+          IdFunCham_LL = '(' ParamFun ')'
+ [0006,0010] (0044,              AB_PAR) {(} 
+          ParamFun = Ec ParamFun_LL
+          Ec = Fc Ecr
+          Eb = Tb Ebr
+          Tb = Fb TbLL
+          Fb = Ra FbLL
+          Ra = Ea RaLL
+          Ea = Ta EaLL
+          Ta = Pa TaLL
+          Pa = Fa PaLL
+          IdFunCham = 'id' IdFunCham_LL
+ [0006,0011] (0000,                  ID) {n} 
+          IdFunCham_LL = e
+          PaLL = e
+          TaLL = e
+          EaLL = 'OP_SUB' Ta EaLL
+ [0006,0012] (0028,              OP_SUB) {-} 
+          Ta = Pa TaLL
+          Pa = Fa PaLL
+          Fa = 'CTE_INT'
+ [0006,0013] (0049,             CTE_INT) {2} 
+          PaLL = e
+          TaLL = e
+          EaLL = e
+          RaLL = e
+          FbLL = e
+          TbLL = e
+          EbLL = e
+          EcLL = e
+          ParamFun_LL = e
+ [0006,0014] (0045,              FC_PAR) {)} 
+          PaLL = e
+          TaLL = e
+          EaLL = e
+          RaLL = e
+          FbLL = e
+          TbLL = e
+          EbLL = e
+          EcLL = e
+ [0006,0015] (0048,            TERMINAL) {;} 
+   7  	Fim
+ [0007,0001] (0014,              PR_FIM) {Fim} 
+   8  Fim
+          Instrucoes = e
+ [0008,0001] (0014,              PR_FIM) {Fim} 
+   9  
+  10  Funcao Inteiro Principal ( ) Inicio
+          S = FunDecl S
+          DcFun = 'Funcao' Tipo NomeFun '(' ConstDc ')' InternoDc
+ [0010,0001] (0015,           PR_FUNCAO) {Funcao} 
+          Tipo = 'Inteiro'
+ [0010,0002] (0002,          PR_INTEIRO) {Inteiro} 
+          NomeFun = 'Principal'
+ [0010,0003] (0024,        PR_PRINCIPAL) {Principal} 
+ [0010,0004] (0044,              AB_PAR) {(} 
+          ConstDc = e
+ [0010,0005] (0045,              FC_PAR) {)} 
+          InternoDc = '{' Instrucoes '}'
+ [0010,0006] (0013,           PR_INICIO) {Inicio} 
+  11  	Inteiro n;
+          Instrucoes = DeclId BodyPart
+          DeclId = Type LId ';'
+          Tipo = 'Inteiro'
+ [0011,0001] (0002,          PR_INTEIRO) {Inteiro} 
+          LId = Id Atr Id_LL
+          Id = 'id' ArrayOpt
+ [0011,0002] (0000,                  ID) {n} 
+          VetTipo = e
+          Atr = e
+          Id_LL = e
+ [0011,0003] (0048,            TERMINAL) {;} 
+  12  	Imprimir('Digite o tamanho da sequencia:');
+Imprimir
+          Instrucoes = Command BodyPart
+          Comando = 'Imprimir' '(' 'CTE_CDP' ImprimirParam ')' ';'
+ [0012,0001] (0007,         PR_IMPRIMIR) {Imprimir} 
+ [0012,0002] (0044,              AB_PAR) {(} 
+ [0012,0003] (0051,             CTE_CDP) {'Digite o tamanho da sequencia:'} 
+          ImprimirParam = e
+ [0012,0004] (0045,              FC_PAR) {)} 
+ [0012,0005] (0048,            TERMINAL) {;} 
+  13  	Entrada(n);
+Entrada
+          Instrucoes = Command BodyPart
+          Comando = 'Entrada' '(' EntradaParam ')' ';'
+ [0013,0001] (0006,          PR_ENTRADA) {Entrada} 
+ [0013,0002] (0044,              AB_PAR) {(} 
+          entradaParam = 'id' VetTipo entradaParamLL
+ [0013,0003] (0000,                  ID) {n} 
+          VetTipo = e
+          entradaParamLL = e
+ [0013,0004] (0045,              FC_PAR) {)} 
+ [0013,0005] (0048,            TERMINAL) {;} 
+  14  
+  15  	Repita(Inteiro i = 0, 1, n) Inicio
+Repita
+          Instrucoes = Command BodyPart
+          Comando = 'Repita' repitaParam
+ [0015,0001] (0012,           PR_REPITA) {Repita} 
+          Repita = '(' 'Inteiro' 'id' ':'  Ea ',' Ea RepitaPasso ')' InternoDc
+ [0015,0002] (0044,              AB_PAR) {(} 
+ [0015,0003] (0002,          PR_INTEIRO) {Inteiro} 
+ [0015,0004] (0000,                  ID) {i} 
+ [0015,0005] (0025,              OP_ATR) {=} 
+          Ea = Ta EaLL
+          Ta = Pa TaLL
+          Pa = Fa PaLL
+          Fa = 'CTE_INT'
+ [0015,0006] (0049,             CTE_INT) {0} 
+          PaLL = e
+          TaLL = e
+          EaLL = e
+ [0015,0007] (0043,               DELIM) {,} 
+          Ea = Ta EaLL
+          Ta = Pa TaLL
+          Pa = Fa PaLL
+          Fa = 'CTE_INT'
+ [0015,0008] (0049,             CTE_INT) {1} 
+          PaLL = e
+          TaLL = e
+          EaLL = e
+          repitaPasso = ',' Ea
+ [0015,0009] (0043,               DELIM) {,} 
+          Ea = Ta EaLL
+          Ta = Pa TaLL
+          Pa = Fa PaLL
+          IdFunCham = 'id' IdFunCham_LL
+ [0015,0010] (0000,                  ID) {n} 
+          IdFunCham_LL = e
+          PaLL = e
+          TaLL = e
+          EaLL = e
+ [0015,0011] (0045,              FC_PAR) {)} 
+          InternoDc = '{' Instrucoes '}'
+ [0015,0012] (0013,           PR_INICIO) {Inicio} 
+  16  		total = fibonacci(i);
+          Instrucoes = InstrucoesLL ';' BodyPart
+          instrucoesLL = 'id' ParamAtr
+ [0016,0001] (0000,                  ID) {total} 
+          ParamAtr = '=' Ec lAtr
+ [0016,0002] (0025,              OP_ATR) {=} 
+          Ec = Fc Ecr
+          Eb = Tb Ebr
+          Tb = Fb TbLL
+          Fb = Ra FbLL
+          Ra = Ea RaLL
+          Ea = Ta EaLL
+          Ta = Pa TaLL
+          Pa = Fa PaLL
+          IdFunCham = 'id' IdFunCham_LL
+ [0016,0003] (0000,                  ID) {fibonacci} 
+          IdFunCham_LL = '(' ParamFun ')'
+ [0016,0004] (0044,              AB_PAR) {(} 
+          ParamFun = Ec ParamFun_LL
+          Ec = Fc Ecr
+          Eb = Tb Ebr
+          Tb = Fb TbLL
+          Fb = Ra FbLL
+          Ra = Ea RaLL
+          Ea = Ta EaLL
+          Ta = Pa TaLL
+          Pa = Fa PaLL
+          IdFunCham = 'id' IdFunCham_LL
+ [0016,0005] (0000,                  ID) {i} 
+          IdFunCham_LL = e
+          PaLL = e
+          TaLL = e
+          EaLL = e
+          RaLL = e
+          FbLL = e
+          TbLL = e
+          EbLL = e
+          EcLL = e
+          ParamFun_LL = e
+ [0016,0006] (0045,              FC_PAR) {)} 
+          PaLL = e
+          TaLL = e
+          EaLL = e
+          RaLL = e
+          FbLL = e
+          TbLL = e
+          EbLL = e
+          EcLL = e
+          lAtr = e
+ [0016,0007] (0048,            TERMINAL) {;} 
+  17          Imprimir(total);
+Imprimir
+          Instrucoes = Command BodyPart
+          Comando = 'Imprimir' '(' 'CTE_CDP' ImprimirParam ')' ';'
+ [0017,0001] (0007,         PR_IMPRIMIR) {Imprimir} 
+ [0017,0002] (0044,              AB_PAR) {(} 
+ [0017,0003] (0000,                  ID) {total} 
+          ImprimirParam = e
+ [0017,0004] (0045,              FC_PAR) {)} 
+ [0017,0005] (0048,            TERMINAL) {;} 
+  18  	Fim
+          Instrucoes = e
+ [0018,0001] (0014,              PR_FIM) {Fim} 
+  19  
+  20  	Devolve;
+          Instrucoes = 'Devolve' Devolve ';'
+ [0020,0001] (0016,          PR_DEVOLVE) {Devolve} 
+          Devolve = e
+ [0020,0002] (0048,            TERMINAL) {;} 
+  21  Fim
+ [0021,0001] (0014,              PR_FIM) {Fim} 
+          S = e
