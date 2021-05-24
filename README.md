@@ -3,7 +3,7 @@ Repositório para a disciplina de Compiladores onde se encontram as especificaç
 
 Programa compilado em openJDK11.0.10, utilizando-se a IDE Eclipse
 
-# Analisador Léxico
+# Analisador Léxico + Sintatico
 
 Para executar o analisador léxico, basta executar os seguintes passos: 
 
