@@ -17,7 +17,7 @@
  [0001,0008] (0013,           PR_INICIO) {Inicio} 
    2  	Se(n < 2) Inicio
 Se
-          Instrucoes = Command BodyPart
+          Instrucoes = Comando Instrucoes
           Comando = 'Se' '(' Eb ')' InternoDc fSeLL
  [0002,0001] (0009,               PR_SE) {Se} 
  [0002,0002] (0044,              AB_PAR) {(} 
@@ -80,7 +80,7 @@ Se
    4  	Fim
  [0004,0001] (0014,              PR_FIM) {Fim} 
    5  	Porem Inicio
-          fSeLL = 'PR_POREM' Body
+          fSeLL = 'PR_POREM' Instrucao
  [0005,0001] (0010,            PR_POREM) {Porem} 
           InternoDc = '{' Instrucoes '}'
  [0005,0002] (0013,           PR_INICIO) {Inicio} 
@@ -199,7 +199,7 @@ Se
           InternoDc = '{' Instrucoes '}'
  [0010,0006] (0013,           PR_INICIO) {Inicio} 
   11  	Inteiro n;
-          Instrucoes = DeclId BodyPart
+          Instrucoes = DeclId Instrucoes
           DeclId = Type LId ';'
           Tipo = 'Inteiro'
  [0011,0001] (0002,          PR_INTEIRO) {Inteiro} 
@@ -212,7 +212,7 @@ Se
  [0011,0003] (0048,            TERMINAL) {;} 
   12  	Imprimir('Digite o tamanho da sequencia:');
 Imprimir
-          Instrucoes = Command BodyPart
+          Instrucoes = Comando Instrucoes
           Comando = 'Imprimir' '(' 'CTE_CDP' ImprimirParam ')' ';'
  [0012,0001] (0007,         PR_IMPRIMIR) {Imprimir} 
  [0012,0002] (0044,              AB_PAR) {(} 
@@ -222,7 +222,7 @@ Imprimir
  [0012,0005] (0048,            TERMINAL) {;} 
   13  	Entrada(n);
 Entrada
-          Instrucoes = Command BodyPart
+          Instrucoes = Comando Instrucoes
           Comando = 'Entrada' '(' EntradaParam ')' ';'
  [0013,0001] (0006,          PR_ENTRADA) {Entrada} 
  [0013,0002] (0044,              AB_PAR) {(} 
@@ -235,7 +235,7 @@ Entrada
   14  
   15  	Repita(Inteiro i = 0, 1, n) Inicio
 Repita
-          Instrucoes = Command BodyPart
+          Instrucoes = Comando Instrucoes
           Comando = 'Repita' repitaParam
  [0015,0001] (0012,           PR_REPITA) {Repita} 
           Repita = '(' 'Inteiro' 'id' ':'  Ea ',' Ea RepitaPasso ')' InternoDc
@@ -275,7 +275,7 @@ Repita
           InternoDc = '{' Instrucoes '}'
  [0015,0012] (0013,           PR_INICIO) {Inicio} 
   16  		total = fibonacci(i);
-          Instrucoes = InstrucoesLL ';' BodyPart
+          Instrucoes = InstrucoesLL ';' Instrucoes
           instrucoesLL = 'id' ParamAtr
  [0016,0001] (0000,                  ID) {total} 
           ParamAtr = '=' Ec lAtr
@@ -326,7 +326,7 @@ Repita
  [0016,0007] (0048,            TERMINAL) {;} 
   17          Imprimir(total);
 Imprimir
-          Instrucoes = Command BodyPart
+          Instrucoes = Comando Instrucoes
           Comando = 'Imprimir' '(' 'CTE_CDP' ImprimirParam ')' ';'
  [0017,0001] (0007,         PR_IMPRIMIR) {Imprimir} 
  [0017,0002] (0044,              AB_PAR) {(} 

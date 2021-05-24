@@ -18,7 +18,7 @@ Imprimir
  [0002,0001] (0007,         PR_IMPRIMIR) {Imprimir} 
  [0002,0002] (0044,              AB_PAR) {(} 
 Debug Last: 'Al
- [0002,0004] (0051,             CTE_CDP) {'Al Mundo'} 
+ [0002,0004] (0051,             CTE_CDP) {'Alo Mundo'} 
           ImprimirParam = e
  [0002,0005] (0045,              FC_PAR) {)} 
  [0002,0006] (0048,            TERMINAL) {;} 

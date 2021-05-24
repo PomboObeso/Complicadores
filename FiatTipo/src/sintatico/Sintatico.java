@@ -255,16 +255,16 @@ public class Sintatico {
  
     public void instrucoes() {
         if (checkCategory(EnumTokens.PR_INTEIRO, EnumTokens.PR_FLUTUANTE, EnumTokens.PR_BOOLEANO, EnumTokens.PR_CARACTER, EnumTokens.PR_CONJUNTODEPALAVRAS)) {
-            printProduction("Instrucoes", "DeclId BodyPart");
+            printProduction("Instrucoes", "DeclId Instrucoes");
             fDeclId();
             instrucoes();
         } else if (checkCategory(EnumTokens.PR_IMPRIMIR,EnumTokens.PR_IMPRIMIRNL,EnumTokens.PR_ENTRADA, EnumTokens.PR_ENQUANTO, EnumTokens.PR_REPITA, EnumTokens.PR_SE)) {
             System.out.println(token.lexema);
-            printProduction("Instrucoes", "Command BodyPart");
+            printProduction("Instrucoes", "Comando Instrucoes");
             comando();
             instrucoes();
         } else if (checkCategory(EnumTokens.ID)) {
-            printProduction("Instrucoes", "InstrucoesLL ';' BodyPart");
+            printProduction("Instrucoes", "InstrucoesLL ';' Instrucoes");
             instrucoesLL();
             if (!checkCategory(EnumTokens.TERMINAL)) {
             } else {
@@ -508,12 +508,12 @@ public class Sintatico {
  
     public void repitaPasso() {
         if (checkCategory(EnumTokens.DELIM)) {
-            printProduction("repitaPasso", "',' Ea");
+            printProduction("RepitaPasso", "',' Ea");
             System.out.println(token);
             setNextToken();
             fEa();
         } else {
-            printProduction("ForStep", epsilon);
+            printProduction("RepitaPasso", epsilon);
         }
     }
  
