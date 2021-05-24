@@ -31,7 +31,7 @@
  [0001,0013] (0013,           PR_INICIO) {Inicio} 
    2  		Inteiro h = 1, c, j;
           Instrucoes = DeclId Instrucoes
-          DeclId = Type LId ';'
+          DeclId = Tipo LId ';'
           Tipo = 'Inteiro'
  [0002,0001] (0002,          PR_INTEIRO) {Inteiro} 
           LId = Id Atr Id_LL
@@ -620,7 +620,7 @@ Enquanto
  [0025,0006] (0013,           PR_INICIO) {Inicio} 
   26  		Inteiro n, v;
           Instrucoes = DeclId Instrucoes
-          DeclId = Type LId ';'
+          DeclId = Tipo LId ';'
           Tipo = 'Inteiro'
  [0026,0001] (0002,          PR_INTEIRO) {Inteiro} 
           LId = Id Atr Id_LL
@@ -660,7 +660,7 @@ Entrada
  [0028,0005] (0048,            TERMINAL) {;} 
   29  		Inteiro array[n];
           Instrucoes = DeclId Instrucoes
-          DeclId = Type LId ';'
+          DeclId = Tipo LId ';'
           Tipo = 'Inteiro'
  [0029,0001] (0002,          PR_INTEIRO) {Inteiro} 
           LId = Id Atr Id_LL

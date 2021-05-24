@@ -200,7 +200,7 @@ Se
  [0010,0006] (0013,           PR_INICIO) {Inicio} 
   11  	Inteiro n;
           Instrucoes = DeclId Instrucoes
-          DeclId = Type LId ';'
+          DeclId = Tipo LId ';'
           Tipo = 'Inteiro'
  [0011,0001] (0002,          PR_INTEIRO) {Inteiro} 
           LId = Id Atr Id_LL
