@@ -15,13 +15,13 @@ Para executar o analisador léxico, basta executar os seguintes passos:
     
 2. Clonar o repositório aonde lhe for mais cômodo
 
-3. Abrir o terminal no diretório ``compilador_tipo/FiatTipo``
+3. Abrir o terminal no diretório ``Complicadores/FiatTipo/src``
 
-**Precisa ser no Diretório FiatTipo, pois os demais códigos são para a versão de desenvolvimento usando a IDE. O Diretório FiatTipo é para execução em terminal.**
+**Precisa ser no Diretório Complicadores/FiatTipo, pois os demais códigos são para a versão de desenvolvimento usando a IDE. O Diretório FiatTipo é para execução em terminal.**
 
 4. Para executar o analisador é recomendável recompilar o Main.java para sua máquina e SO específico, utilizando o comando:
 
-``javac src/program/Main.java`` 
+``javac program/Main.java`` 
 
 5. Para executar com o *txt* basta digitar o seguinte comando:
 
