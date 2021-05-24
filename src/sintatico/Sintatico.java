@@ -508,12 +508,12 @@ public class Sintatico {
  
     public void repitaPasso() {
         if (checkCategory(EnumTokens.DELIM)) {
-            printProduction("repitaPasso", "',' Ea");
+            printProduction("RepitaPasso", "',' Ea");
             System.out.println(token);
             setNextToken();
             fEa();
         } else {
-            printProduction("ForStep", epsilon);
+            printProduction("RepitaPasso", epsilon);
         }
     }
  
