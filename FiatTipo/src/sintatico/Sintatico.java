@@ -54,7 +54,7 @@ public class Sintatico {
  
     public void fDeclId() {
         if (checkCategory(EnumTokens.PR_INTEIRO, EnumTokens.PR_FLUTUANTE, EnumTokens.PR_BOOLEANO, EnumTokens.PR_CARACTER, EnumTokens.PR_CONJUNTODEPALAVRAS)) {
-            printProduction("DeclId", "Type LId ';'");
+            printProduction("DeclId", "Tipo LId ';'");
             funTipo();
             fLId();
  
