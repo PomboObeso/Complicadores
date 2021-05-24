@@ -519,7 +519,7 @@ public class Sintatico {
  
     public void fSeLL() {
         if (checkCategory(EnumTokens.PR_POREM)) {
-            printProduction("fSeLL", "'PR_POREM' Body");
+            printProduction("fSeLL", "'PR_POREM' Instrucao");
             System.out.println(token);
             setNextToken();
             internoDc();
